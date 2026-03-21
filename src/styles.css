@@ -1,0 +1,177 @@
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top, rgba(255, 235, 184, 0.18), transparent 35%),
+    linear-gradient(180deg, #88bed8 0%, #d6c89a 100%);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+body {
+  color: #f5f1df;
+}
+
+#app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#game-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  outline: none;
+  touch-action: none;
+}
+
+.hud-root {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hud-top {
+  display: flex;
+  justify-content: center;
+  padding-top: 14px;
+}
+
+.hud-status {
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 244, 214, 0.32);
+  border-radius: 999px;
+  background: rgba(28, 31, 28, 0.4);
+  backdrop-filter: blur(6px);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  transform: translate(-50%, -50%);
+}
+
+.crosshair::before,
+.crosshair::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 249, 234, 0.9);
+  box-shadow: 0 0 6px rgba(20, 20, 20, 0.5);
+}
+
+.crosshair::before {
+  left: 50%;
+  top: 4px;
+  width: 2px;
+  height: 14px;
+  transform: translateX(-50%);
+}
+
+.crosshair::after {
+  top: 50%;
+  left: 4px;
+  width: 14px;
+  height: 2px;
+  transform: translateY(-50%);
+}
+
+.hotbar-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 24px;
+}
+
+.selected-block-label {
+  min-height: 24px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(22, 20, 17, 0.55);
+  border: 1px solid rgba(255, 244, 214, 0.18);
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.hotbar {
+  display: grid;
+  grid-template-columns: repeat(6, 64px);
+  gap: 8px;
+  padding: 10px;
+  border-radius: 22px;
+  background: rgba(20, 18, 15, 0.52);
+  border: 1px solid rgba(255, 244, 214, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+.hotbar-slot {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  border: 2px solid rgba(255, 246, 223, 0.18);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.16)),
+    rgba(64, 51, 31, 0.72);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
+  box-sizing: border-box;
+}
+
+.hotbar-slot.active {
+  border-color: rgba(255, 229, 156, 0.95);
+  box-shadow:
+    0 0 0 2px rgba(255, 214, 104, 0.2),
+    0 8px 18px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+}
+
+.hotbar-swatch {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 244, 214, 0.22);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.08);
+}
+
+.hotbar-key {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  font-size: 12px;
+  color: rgba(255, 244, 214, 0.7);
+}
+
+@media (max-width: 700px) {
+  .hotbar {
+    grid-template-columns: repeat(6, 48px);
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .hotbar-slot {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+  }
+
+  .hotbar-swatch {
+    width: 24px;
+    height: 24px;
+  }
+}

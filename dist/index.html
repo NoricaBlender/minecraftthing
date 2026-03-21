@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Babylon Voxel Sandbox</title>
+    <script type="module" crossorigin src="./assets/index-B2oWQ6OX.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DRu38Zyx.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      if (window.location.protocol === "file:") {
+        const root = document.getElementById("app");
+
+        if (root) {
+          root.innerHTML = `
+            <div style="
+              min-height: 100vh;
+              box-sizing: border-box;
+              display: grid;
+              place-items: center;
+              padding: 24px;
+              background: linear-gradient(180deg, #8bb9d5 0%, #d9cca1 100%);
+              color: #201c16;
+              font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+            ">
+              <div style="
+                max-width: 720px;
+                background: rgba(255, 249, 236, 0.92);
+                border: 1px solid rgba(43, 34, 21, 0.15);
+                border-radius: 20px;
+                padding: 24px;
+                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+              ">
+                <h1 style="margin: 0 0 12px; font-size: 28px;">This file needs a web server</h1>
+                <p style="margin: 0 0 12px; line-height: 1.5;">
+                  You opened the Vite source <code>index.html</code> directly, so the TypeScript entry file was not loaded.
+                </p>
+                <p style="margin: 0 0 12px; line-height: 1.5;">
+                  Use one of these:
+                </p>
+                <pre style="
+                  margin: 0 0 12px;
+                  padding: 14px;
+                  border-radius: 12px;
+                  background: #201c16;
+                  color: #f7efd8;
+                  overflow: auto;
+                ">cd C:\\Users\\ASUS\\Documents\\Playground\\babylon-voxel-sandbox
+
+$env:Path = 'C:\\Users\\ASUS\\Documents\\Playground\\.tooling\\node-v22.22.1-win-x64;' + $env:Path
+& 'C:\\Users\\ASUS\\Documents\\Playground\\.tooling\\node-v22.22.1-win-x64\\npm.cmd' install
+& 'C:\\Users\\ASUS\\Documents\\Playground\\.tooling\\node-v22.22.1-win-x64\\npm.cmd' run dev</pre>
+                <p style="margin: 0 0 12px; line-height: 1.5;">
+                  Then open the local URL shown in the terminal, usually <code>http://localhost:5173</code>.
+                </p>
+                <p style="margin: 0; line-height: 1.5;">
+                  If you want a double-clickable build instead, run <code>npm run build</code> and open <code>dist/index.html</code>.
+                </p>
+              </div>
+            </div>
+          `;
+        }
+      }
+    </script>
+  </body>
+</html>
