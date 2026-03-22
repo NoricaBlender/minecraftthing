@@ -1,30 +1,27 @@
-# Babylon Voxel Sandbox
+# Babylon Voxel Ship Buoyancy
 
-A browser-based Minecraft-inspired voxel sandbox MVP built with Babylon.js, TypeScript, and Vite.
+A Babylon.js proof-of-concept showing a voxel, block-built ship floating on a flat water plane with per-block buoyancy forces, drag, and torque.
 
 ## Commands
 
 ```bash
 npm install
 npm run dev
+npm run build
 ```
 
-## MVP Features
+## Demo Features
 
-- Chunk-based voxel terrain
-- Procedural world generation from seeded noise
-- First-person movement with gravity, jumping, and block collision
-- Break and place blocks
-- Hotbar block selection
-- Local save/load for world edits
+- Modular TypeScript structure split by app, scene, ship, water, physics, and HUD
+- Block-based ship assembled from voxel layers
+- Flat water surface with buoyancy sampled from every voxel block
+- Rigid-body style heave, pitch, roll, thrust, and steering response
+- Orbit camera and on-screen telemetry for draft, speed, and trim
 
 ## Controls
 
-- `WASD`: move
-- `Mouse`: look
-- `Space`: jump
-- `Shift`: sprint
-- `Left click`: break block
-- `Right click`: place selected block
-- `Mouse wheel` or `1`-`9`: change selected block
-- `Esc`: release pointer lock
+- `W` / `S`: throttle forward or reverse
+- `A` / `D`: steer left or right
+- `Shift`: temporary engine boost
+- `R`: reset the ship pose
+- `Mouse drag` / `wheel`: orbit and zoom the camera

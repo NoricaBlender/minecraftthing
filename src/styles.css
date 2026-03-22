@@ -5,13 +5,13 @@ body {
   height: 100%;
   overflow: hidden;
   background:
-    radial-gradient(circle at top, rgba(255, 235, 184, 0.18), transparent 35%),
-    linear-gradient(180deg, #88bed8 0%, #d6c89a 100%);
-  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    radial-gradient(circle at top, rgba(255, 246, 214, 0.28), transparent 28%),
+    linear-gradient(180deg, #9fe0eb 0%, #55bfd4 42%, #083847 100%);
+  font-family: Cambria, "Palatino Linotype", "Book Antiqua", serif;
 }
 
 body {
-  color: #f5f1df;
+  color: #eef8fb;
 }
 
 #app {
@@ -28,150 +28,164 @@ body {
   touch-action: none;
 }
 
-.hud-root {
+.demo-overlay {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.hud-top {
-  display: flex;
-  justify-content: center;
-  padding-top: 14px;
-}
-
-.hud-status {
-  padding: 8px 12px;
-  border: 1px solid rgba(255, 244, 214, 0.32);
-  border-radius: 999px;
-  background: rgba(28, 31, 28, 0.4);
-  backdrop-filter: blur(6px);
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.crosshair {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 22px;
-  height: 22px;
-  transform: translate(-50%, -50%);
-}
-
-.crosshair::before,
-.crosshair::after {
-  content: "";
-  position: absolute;
-  background: rgba(255, 249, 234, 0.9);
-  box-shadow: 0 0 6px rgba(20, 20, 20, 0.5);
-}
-
-.crosshair::before {
-  left: 50%;
-  top: 4px;
-  width: 2px;
-  height: 14px;
-  transform: translateX(-50%);
-}
-
-.crosshair::after {
-  top: 50%;
-  left: 4px;
-  width: 14px;
-  height: 2px;
-  transform: translateY(-50%);
-}
-
-.hotbar-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  padding-bottom: 24px;
-}
-
-.selected-block-label {
-  min-height: 24px;
-  padding: 4px 12px;
-  border-radius: 999px;
-  background: rgba(22, 20, 17, 0.55);
-  border: 1px solid rgba(255, 244, 214, 0.18);
-  font-size: 14px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.hotbar {
   display: grid;
-  grid-template-columns: repeat(6, 64px);
-  gap: 8px;
-  padding: 10px;
-  border-radius: 22px;
-  background: rgba(20, 18, 15, 0.52);
-  border: 1px solid rgba(255, 244, 214, 0.15);
-  backdrop-filter: blur(8px);
-}
-
-.hotbar-slot {
-  position: relative;
-  width: 64px;
-  height: 64px;
-  border-radius: 16px;
-  border: 2px solid rgba(255, 246, 223, 0.18);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.16)),
-    rgba(64, 51, 31, 0.72);
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 8px;
+  grid-template-columns: minmax(280px, 420px) minmax(240px, 340px);
+  grid-template-rows: auto 1fr auto;
+  gap: 18px;
+  padding: 22px;
   box-sizing: border-box;
 }
 
-.hotbar-slot.active {
-  border-color: rgba(255, 229, 156, 0.95);
+.panel {
+  border: 1px solid rgba(219, 248, 255, 0.18);
+  border-radius: 22px;
+  background:
+    linear-gradient(140deg, rgba(7, 49, 61, 0.78), rgba(11, 76, 88, 0.52)),
+    rgba(3, 22, 28, 0.35);
   box-shadow:
-    0 0 0 2px rgba(255, 214, 104, 0.2),
-    0 8px 18px rgba(0, 0, 0, 0.25);
-  transform: translateY(-2px);
+    0 24px 50px rgba(0, 16, 22, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
 }
 
-.hotbar-swatch {
-  width: 32px;
-  height: 32px;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 244, 214, 0.22);
-  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.08);
+.hero-panel {
+  padding: 22px 24px 24px;
+  align-self: start;
 }
 
-.hotbar-key {
-  position: absolute;
-  top: 6px;
-  right: 8px;
+.eyebrow {
+  margin: 0 0 8px;
   font-size: 12px;
-  color: rgba(255, 244, 214, 0.7);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(227, 249, 255, 0.82);
+}
+
+.hero-title {
+  margin: 0;
+  font-size: clamp(2rem, 3.2vw, 3.6rem);
+  line-height: 0.96;
+  letter-spacing: 0.01em;
+  color: #f8feff;
+}
+
+.hero-copy {
+  margin: 14px 0 0;
+  max-width: 33rem;
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(227, 247, 252, 0.88);
+}
+
+.metric-panel {
+  grid-column: 2;
+  align-self: start;
+  padding: 18px;
+}
+
+.metric-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.metric-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: end;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.metric-label {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(221, 243, 248, 0.72);
+}
+
+.metric-value {
+  font-family: Consolas, "Lucida Console", monospace;
+  font-size: 17px;
+  color: #f3fdff;
+}
+
+.footer-panel {
+  grid-column: 1 / span 2;
+  align-self: end;
+  padding: 18px 20px;
+}
+
+.control-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.control-card {
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  min-height: 86px;
+  box-sizing: border-box;
+}
+
+.control-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.11);
+  font-family: Consolas, "Lucida Console", monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #f4fdff;
+}
+
+.control-title {
+  margin: 10px 0 4px;
+  font-size: 16px;
+  color: #f8feff;
+}
+
+.control-copy {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(225, 246, 250, 0.76);
 }
 
 @media (max-width: 700px) {
-  .hotbar {
-    grid-template-columns: repeat(6, 48px);
-    gap: 6px;
-    padding: 8px;
+  .demo-overlay {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 14px;
+    padding: 14px;
   }
 
-  .hotbar-slot {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
+  .metric-panel,
+  .footer-panel {
+    grid-column: auto;
   }
 
-  .hotbar-swatch {
-    width: 24px;
-    height: 24px;
+  .control-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-panel,
+  .metric-panel,
+  .footer-panel {
+    padding: 16px;
   }
 }

@@ -1,4 +1,4 @@
-import { Game } from "./core/game";
+import { BuoyancyDemoApp } from "./demo/app";
 import "./styles.css";
 
 const root = document.getElementById("app");
@@ -7,9 +7,9 @@ if (!(root instanceof HTMLElement)) {
   throw new Error("App root element not found.");
 }
 
-const game = new Game(root);
-game.start();
+const app = new BuoyancyDemoApp(root);
+app.start();
 
 window.addEventListener("beforeunload", () => {
-  game.dispose();
+  app.dispose();
 });
